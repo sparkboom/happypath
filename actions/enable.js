@@ -1,0 +1,1 @@
+$('.disabled').removeClass('disabled');

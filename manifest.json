@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Automate",
+  "version": "1.0.0",
+  "description": "Automate",
+
+  "icons": {
+    "128" : "icon-128.png"
+  },
+
+  "browser_action": {
+	"default_icon": "icon-128.png",
+	"default_popup": "menu.html"
+  },
+
+  "background": { "page": "background.html" },
+  "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+
+  "web_accessible_resources": [ "contentscript.js" ]
+}

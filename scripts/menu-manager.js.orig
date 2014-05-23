@@ -1,0 +1,74 @@
+(function (chrome) {
+    'use strict';
+
+<<<<<<< HEAD
+    require(['jquery', 'lodash'], function ($,_) {
+        var dependencies = [
+            "../bower_components/jquery/jquery.js",
+            "../bower_components/lodash/dist/lodash.js",
+            "scripts/queue.js",
+            "scripts/actions.js"];
+
+        var menu = [
+            {
+                name: 'action1',
+                dependency: 'actions/detailsobjectives.js'
+            },
+            {
+                name: 'action2',
+                dependency: 'actions/enable.js'
+            }
+        ];
+
+        function loadDependency(dependency) {
+            chrome.tabs.executeScript(null, { file: dependency });
+        }
+
+        $(function() {
+            _.each(dependencies, loadDependency);
+
+            _.each(menu, function (menuItem) {
+                $('a#' + menuItem.name).click(function () {
+                    debugger;
+                    loadDependency(menuItem.dependency);
+                });
+=======
+    console.log('menu-manager','module loaded');
+
+    require(['jquery'], function ($) {
+
+        console.log('menu-manager', 'instantiated');
+
+        function loadDependencies() {
+            chrome.tabs.executeScript(null, { file: "../bower_components/jquery/jquery.js" });
+            chrome.tabs.executeScript(null, { file: "../bower_components/angular/angular.js" });
+            chrome.tabs.executeScript(null, { file: "../bower_components/lodash/dist/lodash.js" });
+            chrome.tabs.executeScript(null, { file: "scripts/queue.js" });
+            chrome.tabs.executeScript(null, { file: "scripts/actions.js" });
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDependencies();
+
+            $('a#action1').click(function () {
+                chrome.tabs.executeScript(null, { file: "actions/detailsobjectives.js" });
+            });
+            $('a#action2').click(function () {
+                chrome.tabs.executeScript(null, { file: "actions/enable.js" });
+>>>>>>> ec8ab35f1e35abdfa59bea235ebe89c95b4dd092
+            });
+        });
+
+    });
+
+<<<<<<< HEAD
+})(chrome);
+=======
+})(chrome);
+
+
+
+
+
+
+>>>>>>> ec8ab35f1e35abdfa59bea235ebe89c95b4dd092

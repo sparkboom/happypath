@@ -1,12 +1,13 @@
-﻿(function () {
+﻿(function (document) {
     'use strict';
 
     require.config({
-        baseUrl: 'scripts',
+        baseUrl: 'modules/happypath',
         paths: {
             'angular': '../bower_components/angular/angular',
             'jquery': '../bower_components/jquery/dist/jquery',
-            'lodash': '../bower_components/lodash/dist/lodash'
+            'lodash': '../bower_components/lodash/dist/lodash',
+            'app': '../modules/happypath/happypath.app'
         },
         shim: {
             angular: {
@@ -23,14 +24,15 @@
 
     console.log('require-init');
 
-    require(['jquery','menu-manager'], function($, menuMgr) {
+    require(['angular','app'], function(angular) {
 
         //start
-        console = chrome.extension.getBackgroundPage().console;
+        //console = chrome.extension.getBackgroundPage().console;
 
         console.log('test!!');
+        angular.bootstrap(document,['happypath']);
 
     });
 
-})();
+})(document);
 

@@ -7,7 +7,7 @@ function fireEvent(element, event) {
     if (document.createEventObject) {
         // dispatch for IE
         var evt = document.createEventObject();
-        return element.fireEvent('on' + event, evt)
+        return element.fireEvent('on' + event, evt);
     }
     else {
         // dispatch for firefox + others
@@ -16,6 +16,7 @@ function fireEvent(element, event) {
         return !element.dispatchEvent(evt);
     }
 }
+
 function go(resp, selector, filterParams) {
     resp = $(selector);
 

@@ -1,0 +1,7 @@
+<div class="section" data-ng-controller="menuCtrl as MenuController">
+    <h1>{{menuCtrl.title}}</h1>
+    <ul>
+        <li class="option" data-ng-repeat="menuItem in menuCtrl.menuItems"><a data-ng-click="clickMenuItem(menuItem)">{{menuItem.name}}</a></li>
+    </ul>
+</div>
+
